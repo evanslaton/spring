@@ -19,6 +19,7 @@ public class HelloWorldController {
         return capitalizeString(string);
     }
 
+    // Capitalize and returns the string passed in
     public static String capitalizeString(String string) {
         return string.toUpperCase();
     }
