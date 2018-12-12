@@ -13,17 +13,14 @@ public class AlbumController {
     @Autowired
     private AlbumRepository albumRepo;
 
-    //
+    // Displays the database data to the user
     @RequestMapping(value="/albums", method= RequestMethod.GET)
     public String showAlbums(Model albumModel) {
-//        Album[] albums = new Album[]{
-//                new Album("Black Parade", 12, 1000000, "https://upload.wikimedia.org/wikipedia/en/thumb/e/ea/Blackparadecover.jpg/220px-Blackparadecover.jpg"),
-//                new Album("Other Album", 3, 10000000, "https://upload.wikimedia.org/wikipedia/en/thumb/e/ea/Blackparadecover.jpg/220px-Blackparadecover.jpg")
-//        };
         albumModel.addAttribute("albums", albumRepo.findAll());
         return "albums";
     }
 
+    // Accepts user input, adds it to the database, and redirects the user to /albums
     @RequestMapping(value="/albums", method= RequestMethod.POST)
     public RedirectView createAlbum(@RequestParam String title,
                                     @RequestParam int songCount,
