@@ -7,6 +7,7 @@ import javax.persistence.Id;
 
 @Entity
 public class Album {
+    // Instance properties
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long id;
@@ -15,6 +16,10 @@ public class Album {
     public int length;
     public String imageUrl;
 
+    // Default constructor
+    Album(){}
+
+    // Constructor
     Album(String title, int songCount, int length, String imageUrl) {
         this.title = title;
         this.songCount = songCount;
@@ -22,8 +27,9 @@ public class Album {
         this.imageUrl = imageUrl;
     }
 
+    // Returns the data from the instance as a String
     @Override
     public String toString() {
-        return this.title + " has " + songCount +"(s) and is " + length + " seconds long (" + imageUrl + ").";
+        return this.title + " has " + songCount +" song(s) and is " + length + " seconds long (" + imageUrl + ").";
     }
 }
