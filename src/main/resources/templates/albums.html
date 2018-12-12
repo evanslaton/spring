@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <h1>Albums</h1>
+    <ul>
+        <li th:each="album : ${albums}">
+            <span th:text="${album}"></span>
+        </li>
+    </ul>
+
+    <h2>Add an album</h2>
+    <form action="/albums" method="POST">
+        <input name="title" type="text" placeholder="Album Title">
+        <input name="songCount" type="text" placeholder="Number of Songs">
+        <input name="length" type="text" placeholder="Length in Seconds">
+        <input name="imageUrl" type="text" placeholder="Image Url">
+        <input type="submit">
+    </form>
+</body>
+</html>
