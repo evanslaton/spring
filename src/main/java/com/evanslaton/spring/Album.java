@@ -18,10 +18,10 @@ public class Album {
     public String imageUrl;
 
     // Default constructor
-    Album(){}
+    public Album(){}
 
     // Constructor
-    Album(String title, String artist, int songCount, int length, String imageUrl) {
+    public Album(String title, String artist, int songCount, int length, String imageUrl) {
         this.title = title;
         this.artist = artist;
         this.songCount = songCount;

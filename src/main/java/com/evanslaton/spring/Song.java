@@ -14,20 +14,18 @@ public class Song {
     public String title;
     public int length;
     public int trackNumber;
-    public Album album;
 
     // Generic Constructor
-    Song() {}
+    public Song() {}
 
-    // Constructior
-    Song(String title, int length, int trackNumber, Album album) {
+    // Constructor
+    public Song(String title, int length, int trackNumber, Album album) {
         this.title = title;
         this.length = length;
         this.trackNumber = trackNumber;
-        this.album = album;
     }
 
     public String toString() {
-        return this.title + " is the #" + this.trackNumber + " track on " + this.album.title + " and is " + this.length + " seconds long.";
+        return this.title + " is the #" + this.trackNumber + " and is " + this.length + " seconds long.";
     }
 }
