@@ -23,10 +23,11 @@ public class AlbumController {
     // Accepts user input, adds it to the database, and redirects the user to /albums
     @RequestMapping(value="/albums", method= RequestMethod.POST)
     public RedirectView createAlbum(@RequestParam String title,
+                                    @RequestParam String artist,
                                     @RequestParam int songCount,
                                     @RequestParam int length,
                                     @RequestParam String imageUrl) {
-        Album newAlbum = new Album(title, songCount, length, imageUrl);
+        Album newAlbum = new Album(title, artist, songCount, length, imageUrl);
         albumRepo.save(newAlbum);
         return new RedirectView("/albums");
     }
