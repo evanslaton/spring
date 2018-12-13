@@ -1,9 +1,7 @@
 package com.evanslaton.spring;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Album {
@@ -16,6 +14,9 @@ public class Album {
     public int songCount;
     public int length;
     public String imageUrl;
+
+    @OneToMany(mappedBy="album")
+    public List<Song> songs;
 
     // Default constructor
     public Album(){}
@@ -32,6 +33,6 @@ public class Album {
     // Returns the data from the instance as a String
     @Override
     public String toString() {
-        return this.title + " by " + this.artist + " has " + songCount +" song(s) and is " + length + " seconds long (" + imageUrl + ").";
+        return this.title + " by " + this.artist + " has " + songCount +" song(s) and is " + length + " seconds long (" + imageUrl + "). Songs are: " + this.songs;
     }
 }

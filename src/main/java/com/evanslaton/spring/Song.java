@@ -1,9 +1,6 @@
 package com.evanslaton.spring;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Song {
@@ -15,17 +12,20 @@ public class Song {
     public int length;
     public int trackNumber;
 
+    @ManyToOne
+    public Album album;
+
     // Generic Constructor
     public Song() {}
 
     // Constructor
-    public Song(String title, int length, int trackNumber, Album album) {
+    public Song(String title, int length, int trackNumber) {
         this.title = title;
         this.length = length;
         this.trackNumber = trackNumber;
     }
 
     public String toString() {
-        return this.title + " is the #" + this.trackNumber + " and is " + this.length + " seconds long.";
+        return this.title + " is the #" + this.trackNumber + " song on the album and is " + this.length + " seconds long.";
     }
 }
