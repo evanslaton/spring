@@ -36,6 +36,7 @@ public class AlbumController {
         return new RedirectView("/albums");
     }
 
+    // Adds a song to an album
     @RequestMapping(value="/albums/{albumId}/songs", method= RequestMethod.POST)
     public RedirectView addSong(@PathVariable long albumId,
                                 @RequestParam String title,
@@ -46,5 +47,13 @@ public class AlbumController {
         newSong.album = albumRepo.findById(albumId).get();
         songRepo.save(newSong);
         return new RedirectView("/albums");
+    }
+
+    // Redirects the user to a page where they view only one album and its songs
+    @RequestMapping(value="/albums/{albumId}/show", method= RequestMethod.GET)
+    public String addSong(@PathVariable long albumId,
+                                Model albumModel){
+        albumModel.addAttribute("album", albumRepo.findById(albumId).get());
+        return "show-album";
     }
 }

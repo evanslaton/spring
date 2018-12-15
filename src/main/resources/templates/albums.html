@@ -8,7 +8,7 @@
     <h1>Albums</h1>
     <ul>
         <li th:each="album : ${albums}">
-            <span th:text="${album}"></span>
+            <a th:href="${'/albums/' + album.id + '/show'}"><span th:text="${album}"></span></a>
             <form th:action="${'/albums/' + album.id + '/songs'}" method="POST">
                 <input name="title" type="text" placeholder="Song Title">
                 <input name="length" type="text" placeholder="Length">
