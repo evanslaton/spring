@@ -14,7 +14,6 @@
     * spring.datasource.url=jdbc:postgresql://localhost:<DATABASE>/album_app
     * spring.datasource.username=<USERNAME>
     * spring.datasource.password=<PASSWORD>
-
     * spring.jpa.generate-ddl=true // Add this line if it doesn't work the first time you run the app
     * spring.jpq.hibernate.ddl-auto=create
 * Gradle command to run:  ./gradlew bootrun
